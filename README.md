@@ -3,11 +3,11 @@
 
 # 使い方
 ## ローカル環境にクローンなど
+```
 git clone https://github.com/YOUR_USERNAME/break-your-concentration.git
-
 cd break-your-concentration
-
 npm install
+```
 
 ## 通知時刻の設定変更
 punchInHourとpunchInMinuteの数字を、通知を受け取りたい時刻に合わせて変更してください。
@@ -21,8 +21,9 @@ main.js
 ```
 
 ## アプリ起動
+```
 npm run build
-
+```
 release配下に生成された.dmgファイルを開いて、アプリを起動してください。
 
 # 参考
