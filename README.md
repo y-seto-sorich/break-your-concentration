@@ -20,7 +20,7 @@ main.js
   const punchInMinute = 55;
 ```
 
-## アプリ起動
+## アプリ起動（macOS向け.app）
 ```
 npm run build
 ```
