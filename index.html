@@ -85,16 +85,9 @@
     const closeButton = document.getElementById('close-button');
 
     window.electronAPI.onShowPunchInModal(() => {
-        alertTitle.textContent = "まもなく出勤時間です⭐︎";
+        alertTitle.textContent = "まもなく出勤時間です";
         showAlertModal();
     });
-
-    /*
-    window.electronAPI.onShowPunchOutModal(() => {
-        alertTitle.textContent = "退勤時間となりました⭐︎";
-        showAlertModal();
-    });
-    */
 
     const showAlertModal = () => {
         alertModal.style.display = 'flex';

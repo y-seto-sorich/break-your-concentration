@@ -42,8 +42,6 @@ app.whenReady().then(() => {
   // --- スケジュール設定start ---
   const punchInHour = 9;
   const punchInMinute = 55;
-  // const punchOutHour = 19;
-  // const punchOutMinute = 0;
 
   // 出勤アラートのスケジュール
     schedule.scheduleJob(`${punchInMinute} ${punchInHour} * * 1-5`, () => {     // 平日 (月-金)
@@ -54,18 +52,6 @@ app.whenReady().then(() => {
         mainWindow.webContents.send('show-punch-in-modal');
     }
   });
-
-  /*
-  // 退勤アラートのスケジュール
-    // schedule.scheduleJob(`${punchOutMinute} ${punchOutHour} * * 1-5`, () => {       // 平日 (月-金)
-    schedule.scheduleJob(`${punchOutMinute} ${punchOutHour} * * *`, () => {       //テスト用
-    console.log('退勤アラート');
-    if (mainWindow) {
-        mainWindow.show();
-        mainWindow.webContents.send('show-punch-out-modal');
-    }
-  });
-  */
   // --- スケジュール設定end ---
 
   // レンダープロセスからモーダルが閉じられた通知を受け取る
