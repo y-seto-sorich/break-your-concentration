@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>break-your-concentration</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        #alert-modal {
+            background-color: #ff0000;
+            border: 10px solid #ff00ff;
+            padding: 50px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.8);
+            transform: scale(0.8);
+            animation: pulse 1.5s infinite alternate;
+            display: none; /* 初期状態では非表示 */
+            max-width: 90%;
+            max-height: 90%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #alert-modal h1 {
+            font-size: 8vw;
+            margin-bottom: 30px;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+        #alert-modal p {
+            font-size: 3vw;
+            margin-bottom: 40px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: pre-wrap;
+        }
+        #close-button {
+            background-color: #4cafaf;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 2vw;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+        #close-button:hover {
+            background-color: #458ba0;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(0.8); box-shadow: 0 0 50px rgba(255, 0, 0, 0.8); }
+            to { transform: scale(0.9); box-shadow: 0 0 80px rgba(255, 0, 0, 1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="alert-modal">
+        <h1 id="alert-title"></h1>
+        <p id="alert-message"></p>
+        <button id="close-button">閉じる</button>
+    </div>
+</body>
+</html>
+<script>
+    const alertModal = document.getElementById('alert-modal');
+    const alertTitle = document.getElementById('alert-title');
+    const closeButton = document.getElementById('close-button');
+
+    window.electronAPI.onShowPunchInModal(() => {
+        alertTitle.textContent = "まもなく出勤時間です⭐︎";
+        showAlertModal();
+    });
+
+    /*
+    window.electronAPI.onShowPunchOutModal(() => {
+        alertTitle.textContent = "退勤時間となりました⭐︎";
+        showAlertModal();
+    });
+    */
+
+    const showAlertModal = () => {
+        alertModal.style.display = 'flex';
+    };
+
+    closeButton.addEventListener('click', () => {
+        alertModal.style.display = 'none';
+        window.electronAPI.closeModal();
+    });
+</script>

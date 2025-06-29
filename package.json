@@ -1,0 +1,36 @@
+{
+  "name": "break-your-concentration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^37.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "node-schedule": "^2.1.1"
+  },
+  "build": {
+    "appId": "com.yourname.breakyourconcentration",
+    "productName": "break-your-concentration",
+    "directories": {
+      "output": "release/"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/${platform}/**/*"
+    ],
+    "mac": {
+      "target": "dmg"
+    }
+  }
+}
