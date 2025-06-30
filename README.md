@@ -4,7 +4,7 @@
 # 使い方
 ## ローカル環境にクローンなど
 ```
-git clone https://github.com/YOUR_USERNAME/break-your-concentration.git
+git clone https://github.com/y-seto-sorich/break-your-concentration.git
 cd break-your-concentration
 npm install
 ```
